@@ -402,13 +402,9 @@
 
 	#banner .title
 	{
+		transform: scaleX(-1);
 		margin-bottom: 1em;
 		text-transform: uppercase !important;
-	}
-
-	#banner .title .video
-	{
-		transform: scaleX(-1);
 	}
 
 	#banner .title h2
