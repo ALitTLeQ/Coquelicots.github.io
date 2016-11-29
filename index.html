@@ -34,6 +34,7 @@ Released   : 20140123
 		<div class="container">
 			<div class="title">
 				<video id="video" width="640" height="480" autoplay></video>
+				<img id="videoImage" src="" alt="Mountain View" style="width:640px;height:480px;">
 			</div>
 			<ul class="actions" id="snap">
 				<li><a href="#" class="button">Photo!</a></li>
@@ -76,9 +77,8 @@ Released   : 20140123
       	document.getElementById("snap").addEventListener("click", function() {
 			var canvas = document.createElement("canvas");
 	       	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-	    	var img = document.createElement("img");
+	    	var img = document.getElementById("videoImage");
 	    	img.src = canvas.toDataURL();
-	    	console.log(img.src);
       	});
       
       	// Get access to the camera!
