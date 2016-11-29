@@ -6,7 +6,7 @@
     </head>  
     <body>
       <div style="color:#00FF00" align="center" valign="center">
-            <video id="video" width="320" height="240"autoplay></video><br>
+            <video id="video" width="640" height="480"autoplay></video><br>
       </div>
       <button id="snap" align="center" valign="center">Snap Photo</button><br>
       <canvas id="canvas" width="320" height="240" align="center" valign="center"></canvas>
@@ -18,7 +18,7 @@
 
       // Trigger photo take
       document.getElementById("snap").addEventListener("click", function() {
-        context.drawImage(video, 0, 0, 320, 240);
+        context.drawImage(video, 0, 0, 640, 480);
       });
       // Get access to the camera!
       if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
