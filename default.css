@@ -392,6 +392,7 @@
 
 	#banner
 	{
+		transform: scaleX(-1);
 		overflow: hidden;
 		padding: 7em 0em 5em 0em;
 		background: #CA85DB url(images/banner.png) no-repeat center;
@@ -404,7 +405,6 @@
 	{
 		margin-bottom: 1em;
 		text-transform: uppercase !important;
-		transform: scaleX(-1);
 	}
 
 	#banner .title h2
