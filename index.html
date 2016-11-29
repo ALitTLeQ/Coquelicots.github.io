@@ -34,7 +34,6 @@ Released   : 20140123
 		<div class="container">
 			<div class="title">
 				<video id="video" width="640" height="480" autoplay></video>
-				<img id="videoImage" src="">
 			</div>
 			<ul class="actions" id="snap">
 				<li><a href="#" class="button">Photo!</a></li>
@@ -76,9 +75,10 @@ Released   : 20140123
       
       	document.getElementById("snap").addEventListener("click", function() {
 			var canvas = document.createElement("canvas");
+			canvas.width = 640;
+			canvas.height= 480;
 	       	canvas.getContext('2d').drawImage(video, 0, 0, 640, 480);
-	    	var img = document.getElementById("videoImage");
-	    	img.src = canvas.toDataURL();
+	    	window.open(canvas.toDataURL());
       	});
       
       	// Get access to the camera!
