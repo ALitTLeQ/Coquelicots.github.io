@@ -76,7 +76,7 @@ Released   : 20140123
       
       	document.getElementById("snap").addEventListener("click", function() {
 			var canvas = document.createElement("canvas");
-	       	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+	       	canvas.getContext('2d').drawImage(video, 0, 0, 640, 480);
 	    	var img = document.getElementById("videoImage");
 	    	img.src = canvas.toDataURL();
       	});
