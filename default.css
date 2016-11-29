@@ -415,6 +415,11 @@
 	{
 		color: rgba(255,255,255,.6);
 	}
+
+	#banner .title .video
+	{
+		transform: scaleX(-1);
+	}
 	
 	#banner .button
 	{
