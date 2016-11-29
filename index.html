@@ -35,7 +35,7 @@ Released   : 20140123
 			<div class="title">
 				<video id="video" width="640" height="480" autoplay></video>
 			</div>
-			<ul class="actions">
+			<ul class="actions" id="snap">
 				<li><a href="#" class="button">Photo!</a></li>
 			</ul>
 		</div>
@@ -68,23 +68,27 @@ Released   : 20140123
 	</div>
 
 	<script type="text/javascript">  
-      // Grab elements, create settings, etc.
-      var video = document.getElementById('video');
+      	// Grab elements, create settings, etc.
+		var video = document.getElementById('video');
 
-      // Trigger photo take
-      /*
-      document.getElementById("snap").addEventListener("click", function() {
-        context.drawImage(video, 0, 0, 640, 480);
-      });
-      */
-      // Get access to the camera!
-      if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      // Not adding `{ audio: true }` since we only want video now
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        video.src = window.URL.createObjectURL(stream);
-          video.play();
-        });
-      }
+     	// Trigger photo take
+      
+      	document.getElementById("snap").addEventListener("click", function() {
+			var canvas = document.createElement("canvas");
+	       	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+	    	var img = document.createElement("img");
+	    	img.src = canvas.toDataURL();
+	    	console.log(img.src);
+      	});
+      
+      	// Get access to the camera!
+      	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      	// Not adding `{ audio: true }` since we only want video now
+        	navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        		video.src = window.URL.createObjectURL(stream);
+          		video.play();
+        	});
+      	}
     </script>
 </body>
 </html>
