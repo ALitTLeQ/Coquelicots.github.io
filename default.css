@@ -404,6 +404,7 @@
 	{
 		margin-bottom: 1em;
 		text-transform: uppercase !important;
+		transform: scaleX(-1);
 	}
 
 	#banner .title h2
@@ -416,11 +417,6 @@
 		color: rgba(255,255,255,.6);
 	}
 
-	#banner .title .video
-	{
-		transform: scaleX(-1);
-	}
-	
 	#banner .button
 	{
 		margin-top: 3em;
