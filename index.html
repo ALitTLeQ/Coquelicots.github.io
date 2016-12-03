@@ -41,6 +41,10 @@ Released   : 20140123
 		</div>
 	</div>
 
+	<form method="post" accept-charset="utf-8" name="imageUrlForm">
+            <input name="imageUrl" id='imageUrl' type="hidden"/>
+    </form>
+
 	<div id="extra" class="container">
 		<div class="title">
 			<h2>Praesent scelerisquet</h2>
@@ -78,7 +82,13 @@ Released   : 20140123
 			canvas.width = 640;
 			canvas.height= 480;
 	       	canvas.getContext('2d').drawImage(video, 0, 0, 640, 480);
-	    	window.open(canvas.toDataURL());
+	       	var dataURL = canvas.toDataURL("image/png");
+	       	document.getElementById('imageUrl').value = dataURL;
+	       	var fd = new FormData(document.forms["imageUrlForm"]);
+
+	       	var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'upload_image.php', true);
+            xhr.send(fd);
       	});
       
       	// Get access to the camera!
