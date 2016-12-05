@@ -7,11 +7,6 @@ $data = base64_decode($img);
 $newfilename = rand(1,99999) . '.png');
 $file = $upload_dir . $newfilename;
 $success = file_put_contents($file, $data);
-print $success ? $file : 'Unable to save the file.';
-echo '
-{
-"title":"'.$newfilename.'",
-}'; 
-
-
+//print $success ? $file : 'Unable to save the file.';
+print '{"title":"'.$newfilename.'",}'; 
 ?>
