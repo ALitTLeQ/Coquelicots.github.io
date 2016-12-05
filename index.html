@@ -18,7 +18,10 @@ Released   : 20140123
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
@@ -32,11 +35,12 @@ Released   : 20140123
 
 	<div id="banner">
 		<div class="container">
+            <div id="info" class="success">檢測成功！請至APP取得結果。</div>
 			<div class="title">
-				<video id="video" width="640" height="480" autoplay></video>
+				<video id="video" width="80%" height="80%" autoplay></video>
 			</div>
 			<ul class="actions" id="snap">
-				<li><a href="#" class="button">Photo!</a></li>
+				<li><a href="#" class="button">檢測結果!</a></li>
 			</ul>
 		</div>
 	</div>
@@ -45,35 +49,13 @@ Released   : 20140123
             <input name="imageUrl" id='imageUrl' type="hidden"/>
     </form>
 
-	<div id="extra" class="container">
-		<div class="title">
-			<h2>Praesent scelerisquet</h2>
-			<span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue</span> </div>
-		<div id="three-column">
-			<div class="boxA">
-				<div class="box"> <span class="fa fa-cloud-download"></span>
-					<p>Praesent pellentesque facilisis elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-				</div>
-			</div>
-			<div class="boxB">
-				<div class="box"> <span class="fa fa-cogs"></span>
-					<p>Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis.</p>
-				</div>
-			</div>
-			<div class="boxC">
-				<div class="box"> <span class="fa fa-user"></span>
-					<p> Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus.</p>
-				</div>
-			</div>
-		</div>
-		<ul class="actions">
-			<li><a href="#" class="button">Etiam posuere</a></li>
-		</ul>
-	</div>
 
 	<script type="text/javascript">  
       	// Grab elements, create settings, etc.
 		var video = document.getElementById('video');
+        $(function() {
+          $("#info").hide();
+        });
 
      	// Trigger photo take
       
@@ -89,6 +71,7 @@ Released   : 20140123
 	       	var xhr = new XMLHttpRequest();
             xhr.open('POST', 'upload_image.php', true);
             xhr.send(fd);
+            $("#info").show().delay(5000).fadeOut();
       	});
       
       	// Get access to the camera!
@@ -101,4 +84,5 @@ Released   : 20140123
       	}
     </script>
 </body>
+
 </html>

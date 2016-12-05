@@ -419,8 +419,9 @@
 
 	#banner .button
 	{
-		margin-top: 3em;
+		margin-top: 0.5em;
 		background: #9C39AE !important;
+        font-size: 1.5em;
 	}
 
 /*********************************************************************************/
@@ -565,5 +566,14 @@
 		font-size: 3em;
 	}
 
-
+    .success {
+        border: 1px solid;
+        margin: 10px 0px;
+        padding:15px 10px 15px 50px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        color: #4F8A10;
+        background-color: #DFF2BF;
+        background-image:url('success.png');
+    }
 
