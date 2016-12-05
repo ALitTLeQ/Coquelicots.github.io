@@ -79,9 +79,9 @@ Released   : 20140123
       
       	document.getElementById("snap").addEventListener("click", function() {
 			var canvas = document.createElement("canvas");
-			canvas.width = 640;
-			canvas.height= 480;
-	       	canvas.getContext('2d').drawImage(video, 0, 0, 640, 480);
+			canvas.width = 320;
+			canvas.height= 240;
+	       	canvas.getContext('2d').drawImage(video, 0, 0, 320, 240);
 	       	var dataURL = canvas.toDataURL("image/png");
 	       	document.getElementById('imageUrl').value = dataURL;
 	       	var fd = new FormData(document.forms["imageUrlForm"]);
