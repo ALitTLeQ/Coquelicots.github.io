@@ -8,5 +8,5 @@ $newfilename = uniqid() . '.png';
 //$newfilename = 'image.png';
 $file = $upload_dir . $newfilename;
 $success = file_put_contents($file, $data);
-echo '{"title":"'.$newfilename.'",}'; 
+file_put_contents('filename.json', '{"title":"'.$newfilename.'"}');
 ?>
