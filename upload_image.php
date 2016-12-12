@@ -35,47 +35,14 @@ else{
     file_put_contents('logs.json', json_encode(array($content)));
 }
 
-$file_name="logs.xlsx";
-header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-header("Content-Disposition: attachment; filename=\"$file_name\"");
-header("Cache-Control: max-age=0");
+$file = file_get_contents('logs.json');
+$json = json_decode($file);
 
-require('Classes/PHPExcel.php');
-require_once "Classes/PHPExcel/IOFactory.php";
-               
-$file1=file_get_contents("logs.json");
-$objXLS =new PHPExcel();
-$value=1;
-$array=json_decode($file1);
-$man_val=array();
-//set the heading for first time
-
-foreach ($array as $key => $jsons) { 
-    foreach($jsons as $key => $value1) {
-        array_push($man_val,$key);
-    }
-    break;
+$csvfile = fopen('file.csv', 'w+');
+foreach ($json as $row) {
+    $line = "'" . join("\",\"", $row) . "\"\n";
+    fputs($csvfile, $line);
 }
-$objXLS->getSheet(0)->fromArray($man_val, null, "A".$value);
-$man_val=array();
-$value=2;
-foreach ($array as $key => $jsons) { 
-    
-    foreach($jsons as $key => $value1) {
-        array_push($man_val,$value1);
-    }
-    $objXLS->getSheet(0)->fromArray($man_val, null, "A".$value);
-    $value=$value+1;
-    $man_val=array();
-}
-
-
-$fileType = 'Excel2007';
-$fileName = $file_name;
-$objWriter = PHPExcel_IOFactory::createWriter($objXLS, $fileType);
-$objWriter->save("php://output");
-$objXLS->disconnectWorksheets();
-unset($objXLS);
-
+fclose($csvfile);
 
 ?>
