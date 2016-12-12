@@ -31,7 +31,7 @@ if($inp = file_get_contents('logs.json') !== false){
 }
 else
 {
-    file_put_contents('logs.json', json_encode($content));
+    file_put_contents('logs.json', json_encode(array_values($content)));
 }
 
 $file_name="logs.xlsx";
