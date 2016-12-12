@@ -23,9 +23,10 @@ file_put_contents('filename.json', json_encode($content));
 
 //file_put_contents('logs.json', $content.PHP_EOL , FILE_APPEND | LOCK_EX);
 
-if($inp = file_get_contents('logs.json') !== false){
+if(file_exists('logs.json')){
+    $inp = file_get_contents('logs.json')
     $tempArray = json_decode($inp);
-    array_push($tempArray, $content);
+    array_push($tempArray, array($content);
     $jsonData = json_encode($tempArray);
     file_put_contents('logs.json', $jsonData);
 }
@@ -41,6 +42,7 @@ header("Cache-Control: max-age=0");
 
 require('Classes/PHPExcel.php');
 require_once "Classes/PHPExcel/IOFactory.php";
+               
 $file1=file_get_contents("logs.json");
 $objXLS =new PHPExcel();
 $value=1;
