@@ -5,12 +5,13 @@ $img = str_replace('data:image/png;base64,', '', $img);
 $img = str_replace(' ', '+', $img);
 $data = base64_decode($img);
 $newfilename = uniqid() . '.png';
-//$newfilename = 'image.png';
 $file = $upload_dir . $newfilename;
 $success = file_put_contents($file, $data);
 
+date_default_timezone_set("Asia/Taipei");
+
 $content = array(
-  "refreshTime" => date ("Y-m-d H:i:s"),
+  "refreshTime" => date("Y-m-d H:i:s"),
   "title" => "https://itoiletapp.azurewebsites.net/upload/".$newfilename,
   "Protein" => rand(140,160),
   "Sugar" => rand(0, 30)*5 > 50,
