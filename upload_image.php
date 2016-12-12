@@ -21,7 +21,7 @@ $content = array(
 
 file_put_contents('filename.json', json_encode($content));
 
-file_put_contents('logs.json', $content.PHP_EOL , FILE_APPEND | LOCK_EX);
+//file_put_contents('logs.json', $content.PHP_EOL , FILE_APPEND | LOCK_EX);
 
 if($inp = file_get_contents('logs.json') !== false){
     $tempArray = json_decode($inp);
