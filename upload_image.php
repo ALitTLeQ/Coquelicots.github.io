@@ -10,6 +10,7 @@ $file = $upload_dir . $newfilename;
 $success = file_put_contents($file, $data);
 
 $content = array(
+  "refreshTime" => date ("Y-m-d H:i:s"),
   "title" => "https://itoiletapp.azurewebsites.net/upload/".$newfilename,
   "Protein" => rand(140,160),
   "Sugar" => rand(0, 30)*5 > 50,
@@ -21,28 +22,15 @@ $content = array(
 
 file_put_contents('filename.json', json_encode($content));
 
-//file_put_contents('logs.json', $content.PHP_EOL , FILE_APPEND | LOCK_EX);
-
-if (($inp = file_get_contents('logs.json'))!= false) {
-    $tempArray = json_decode($inp);
-    echo "inp:".json_decode($inp);
+if (($inp = file_get_contents('logs.json'))!= null) {
+    $json = json_decode($inp, true);
+    $tempArray = $json['data'];
+    
     array_push($tempArray, $content);
-    $jsonData = json_encode($tempArray);
-    echo "j:".$jsonData;
+    $jsonData = json_encode(array("data"=>$tempArray));
     file_put_contents('logs.json', $jsonData);
 }
 else{
-    file_put_contents('logs.json', json_encode(array($content)));
+    file_put_contents('logs.json', json_encode(array("data"=>array($content))));
 }
 
-$file = file_get_contents('logs.json');
-$json = json_decode($file);
-
-$csvfile = fopen('file.csv', 'w+');
-foreach ($json as $row) {
-    $line = "'" . join("\",\"", $row) . "\"\n";
-    fputs($csvfile, $line);
-}
-fclose($csvfile);
-
-?>

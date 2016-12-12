@@ -69,6 +69,7 @@ Released   : 20140123
 	       	var fd = new FormData(document.forms["imageUrlForm"]);
 
 	       	var xhr = new XMLHttpRequest();
+            //xhr.open('POST', 'upload_image.php', true);
             xhr.open('POST', 'upload_image.php', true);
             xhr.send(fd);
             $("#info").show().delay(5000).fadeOut();
