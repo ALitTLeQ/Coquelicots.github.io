@@ -19,5 +19,5 @@ $content = array(
   "PH" => rand(35, 80) / 10,
 );
 
-file_put_contents('filename.json', $content);
+file_put_contents('filename.json', json_encode($content));
 ?>
