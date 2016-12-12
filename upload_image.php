@@ -22,17 +22,16 @@ $content = array(
 file_put_contents('filename.json', json_encode($content));
 
 //file_put_contents('logs.json', $content.PHP_EOL , FILE_APPEND | LOCK_EX);
-$inp = file_get_contents('logs.json')
-if($inp !== null){
+
+if ($inp = file_get_contents('logs.json') != false) {
     $tempArray = json_decode($inp);
     echo $tempArray;
-    array_push($tempArray, array($content);
+    array_push($tempArray, array($content));
     $jsonData = json_encode($tempArray);
     echo $jsonData;
     file_put_contents('logs.json', $jsonData);
 }
-else
-{
+else{
     file_put_contents('logs.json', json_encode(array($content)));
 }
 
