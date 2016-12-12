@@ -23,12 +23,16 @@ file_put_contents('filename.json', json_encode($content));
 
 file_put_contents('logs.json', $content.PHP_EOL , FILE_APPEND | LOCK_EX);
 
-$inp = file_get_contents('logs.json');
-$tempArray = json_decode($inp);
-array_push($tempArray, $content);
-$jsonData = json_encode($tempArray);
-file_put_contents('logs.json', $jsonData);
-
+if($inp = file_get_contents('logs.json') !== false){
+    $tempArray = json_decode($inp);
+    array_push($tempArray, $content);
+    $jsonData = json_encode($tempArray);
+    file_put_contents('logs.json', $jsonData);
+}
+else
+{
+    file_put_contents('logs.json', json_encode($content));
+}
 
 $file_name="logs.xlsx";
 header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
