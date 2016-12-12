@@ -10,7 +10,7 @@ $file = $upload_dir . $newfilename;
 $success = file_put_contents($file, $data);
 
 $content = array(
-  "title" => "https://alittleq.com/upload/".$newfilename,
+  "title" => "https://itoiletapp.azurewebsites.net/".$newfilename,
   "Protein" => rand(140,160),
   "Sugar" => rand(0,2),
   "SpecificGravity" => 1 + (rand(15, 24) / 1000),
