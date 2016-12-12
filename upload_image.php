@@ -26,7 +26,7 @@ file_put_contents('filename.json', json_encode($content));
 if (($inp = file_get_contents('logs.json'))!= false) {
     $tempArray = json_decode($inp);
     echo "inp:".json_decode($inp);
-    array_push($tempArray, array($content));
+    array_push($tempArray, $content);
     $jsonData = json_encode($tempArray);
     echo "j:".$jsonData;
     file_put_contents('logs.json', $jsonData);
