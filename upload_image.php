@@ -12,6 +12,7 @@ date_default_timezone_set("Asia/Taipei");
 
 $content = array(
   "refreshTime" => date("Y-m-d H:i:s"),
+  "str" => date("m月d日 H:i"),
   "title" => "https://itoiletapp.azurewebsites.net/upload/".$newfilename,
   "Protein" => rand(140,160),
   "Sugar" => rand(0, 30)*5 > 50,
